@@ -1,0 +1,9 @@
+# vscode
+.vscode
+
+# idea
+.idea
+
+# meta file
+*.pyc
+
