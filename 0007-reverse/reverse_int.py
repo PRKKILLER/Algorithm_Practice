@@ -23,8 +23,14 @@ class Solution:
 
         return sign * res * (res < 2 ** 31) # 注意这里的trick， 可以省略一个if判断
 
+    # 利用字符串进行求解
     def reverse_s2(self, x):
         """
         :type x: int
         :rtype: int
         """
+        if x < 0:
+            return -1 * self.reverse_s2(-x)
+        x_string = str(x)
+        x_reverse = int(x_string[::-1])
+        return x_reverse * (x_reverse < 2 ** 31)
