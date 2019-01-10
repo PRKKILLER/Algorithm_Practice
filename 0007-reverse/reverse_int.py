@@ -31,6 +31,6 @@ class Solution:
         """
         if x < 0:
             return -1 * self.reverse_s2(-x)
-        x_string = str(x)
-        x_reverse = int(x_string[::-1])
+
+        x_reverse = int(str(x)[::-1])
         return x_reverse * (x_reverse < 2 ** 31)
