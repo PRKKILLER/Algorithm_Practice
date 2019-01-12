@@ -9,6 +9,10 @@ You may assume the integer does not contain any leading zero, except the number 
 
 Example: input = [1,2,3] -> output = [1,2,4]
 
+    # Special notice: python的append方法是mutate方法，是modify the list in-place, 没有返回值。
+    # 即不会返回新的list
+    # 若想要有返回值/返回新的一个list，可用'+'
+
     '''
     def plusOne(self, digits):
         """
