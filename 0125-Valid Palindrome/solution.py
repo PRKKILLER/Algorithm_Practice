@@ -32,7 +32,7 @@ Output: true
         """
         if not s:
             return None
-        
+
         s = [x for x in s.lower() if x.isalnum()]
         return s == s[::-1]
 
