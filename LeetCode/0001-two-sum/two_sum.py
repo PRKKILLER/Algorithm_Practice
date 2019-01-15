@@ -1,10 +1,10 @@
 class solution:
-'''
+    '''
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
-'''
+    '''
     # solution-1: 两层循环，暴力求解
     def two_sum_s1(self, nums, target):
         """
@@ -26,8 +26,8 @@ You may assume that each input would have exactly one solution, and you may not 
         :rtype: List[int]
         """      
         keys = {}
-        for idx, num in enumerate(nums):
-            check = target - num
-            if (check) in keys: # 查询的是dict的keys
+        for idx, value in enumerate(nums):
+            check = target - value
+            if check in keys: # 查询的是dict的keys
                 return [keys[check], idx]
-            keys[num] = idx
+            keys[value] = idx
