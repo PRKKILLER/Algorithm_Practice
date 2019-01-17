@@ -49,6 +49,21 @@ class singly_linked_list(object):
                 temp.next, temp = None, temp.next
         return temp # return deleted node
 
+    # Remove all elements from a linked list of integers that have value val.
+    def delete_elements(self, data):
+        dummy = cur = Node(-1)
+        dummy.next = self.head # add dummy node to the start of the list
+        while cur.next:
+            if cur.next.data == data:
+                temp = cur.next
+                cur.next = temp.next
+                temp.next = None
+                del temp
+            else:
+                cur = cur.next
+        self.head = dummy.next
+        del dummy # delete dummy node after use
+
     def isEmpty(self):
         return self.head is None
 
