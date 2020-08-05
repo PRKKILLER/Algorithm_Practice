@@ -1,5 +1,6 @@
 # Algorithm practice
-## This repo contains myself implementations of **LeetCode solution** and **Algorithm**.
 
-* 记录python技巧 &amp; leetcode 解题
-* 记录python实现的各种数据结构
+### This repo records my implementations of [LeetCode](https://leetcode.com/wonderfulxue/) problems and some of the well-known Data Structures.
+
+* Implement solutions in both C++ and Python
+* Use CMake to build the projects and run

@@ -7,3 +7,8 @@
 
 #  meta_file
 *.pyc
+
+# build files
+build/*
+
+cmake-build-debug/*
