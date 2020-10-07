@@ -1,0 +1,1 @@
+add_executable(s22 main.cpp)

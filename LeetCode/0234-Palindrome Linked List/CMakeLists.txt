@@ -1,0 +1,1 @@
+add_executable(s234 main.cpp)

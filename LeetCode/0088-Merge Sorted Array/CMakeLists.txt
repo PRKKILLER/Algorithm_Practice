@@ -1,0 +1,1 @@
+add_executable(s88 main.cpp)

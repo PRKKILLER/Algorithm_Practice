@@ -1,0 +1,1 @@
+add_executable(s7 main.cpp)

@@ -1,0 +1,1 @@
+add_executable(s231 main.cpp)

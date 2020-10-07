@@ -1,0 +1,1 @@
+add_executable(s121 main.cpp)

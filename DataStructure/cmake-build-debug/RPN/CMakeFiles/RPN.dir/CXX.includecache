@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/RPN.cpp
+RPN.h
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/RPN.h
+
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/RPN.h
+iostream
+-
+string
+-
+stack
+-
+cstdlib
+-
+map
+-
+cmath
+-
+priority.h
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/priority.h
+
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/main.cpp
+RPN.h
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/RPN.h
+
+/Users/wonderful_xue/code_repo/Algorithm/DataStructure/RPN/priority.h
+

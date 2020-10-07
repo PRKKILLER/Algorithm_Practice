@@ -1,0 +1,1 @@
+add_executable(s344 main.cpp)

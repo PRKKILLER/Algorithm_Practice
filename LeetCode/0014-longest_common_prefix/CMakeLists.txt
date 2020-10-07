@@ -1,0 +1,1 @@
+add_executable(s14 main.cpp)

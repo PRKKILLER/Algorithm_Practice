@@ -1,0 +1,1 @@
+add_executable(s169 main.cpp)

@@ -9,5 +9,10 @@ class Solution(object):
         """
         return s[::-1]
 
-
-print(Solution().reverseString('A man, a plan, a canal: Panama'))
+    def reverseString2(self, s):
+        if len(s) < 2:
+            return s
+        
+        n = len(s)
+        for i in range(n // 2):
+            s[i], s[n - 1 - i] = s[n - 1 - i], s[i]

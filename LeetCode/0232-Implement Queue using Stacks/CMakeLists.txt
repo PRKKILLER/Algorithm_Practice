@@ -1,0 +1,1 @@
+add_executable(s232 main.cpp)

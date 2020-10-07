@@ -1,0 +1,1 @@
+add_executable(s986 main.cpp)

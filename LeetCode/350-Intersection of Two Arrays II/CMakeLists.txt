@@ -1,0 +1,1 @@
+add_executable(s350 main.cpp)

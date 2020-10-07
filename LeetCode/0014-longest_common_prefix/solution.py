@@ -20,6 +20,7 @@ class Solution:
         """
         if not strs:
             return ''
+        
         if len(strs) == 1:
             return strs[0]
         
@@ -36,8 +37,29 @@ class Solution:
         
         strs[0] = match[1:]
         return match[0] + self.longestCommonPrefix(strs)
+    
+    def longestCommonPrefix_2(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs: 
+            return ""
+        
+        if len(strs) == 1:
+            return strs[0]
+        
+        index = 0
+        maxPrefix = ""
+        for c in strs[0]:
+            for str in strs[1:]:
+                if len(str) <= index or str[index] != c:
+                    return maxPrefix
+            maxPrefix += c
+            index += 1
+        return maxPrefix
 
-# test = Solution().longestCommonPrefix
-# a = ["flower","flow","flight"]
-# print(test(a))
+test = Solution().longestCommonPrefix_2
+a = ["flower","flow","flight"]
+print(test(a))
 

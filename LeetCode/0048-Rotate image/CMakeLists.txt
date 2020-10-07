@@ -1,0 +1,1 @@
+add_executable(s48 main.cpp)

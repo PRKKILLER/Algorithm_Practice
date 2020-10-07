@@ -1,0 +1,1 @@
+add_executable(s665 main.cpp)

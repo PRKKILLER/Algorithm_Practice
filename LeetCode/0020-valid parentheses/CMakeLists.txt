@@ -1,0 +1,1 @@
+add_executable(s20 main.cpp)

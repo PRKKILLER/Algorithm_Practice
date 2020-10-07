@@ -1,0 +1,1 @@
+add_executable(s168 main.cpp)

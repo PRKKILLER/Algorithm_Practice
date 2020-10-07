@@ -1,0 +1,1 @@
+add_executable(s92 main.cpp)

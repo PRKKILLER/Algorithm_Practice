@@ -1,0 +1,1 @@
+add_executable(s23 main.cpp)

@@ -1,0 +1,19 @@
+"/Users/wonderful_xue/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/193.6494.38/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/wonderful_xue/code_repo/Algorithm/DataStructure/Stack
+CMake Warning (dev) in CMakeLists.txt:
+  No project() command is present.  The top-level CMakeLists.txt file must
+  contain a literal, direct call to the project() command.  Add a line of
+  code such as
+
+    project(ProjectName)
+
+  near the top of the file, but after cmake_minimum_required().
+
+  CMake is pretending there is a "project(Project)" command on the first
+  line.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done
+CMake Error: Cannot determine link language for target "stack".
+CMake Error: CMake can not determine linker language for target: stack
+-- Generating done
+CMake Generate step failed.  Build files cannot be regenerated correctly.

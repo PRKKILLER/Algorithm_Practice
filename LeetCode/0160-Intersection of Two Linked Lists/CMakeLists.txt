@@ -1,0 +1,1 @@
+add_executable(s160 main.cpp)

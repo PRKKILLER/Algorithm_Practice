@@ -1,0 +1,1 @@
+add_executable(s198 main.cpp)

@@ -1,0 +1,1 @@
+add_executable(s83 main.cpp)

@@ -1,0 +1,1 @@
+add_executable(s206 main.cpp)

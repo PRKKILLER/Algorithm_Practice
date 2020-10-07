@@ -1,0 +1,1 @@
+add_executable(s349 main.cpp)

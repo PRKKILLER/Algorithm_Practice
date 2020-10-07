@@ -1,0 +1,1 @@
+add_executable(s54 main.cpp)

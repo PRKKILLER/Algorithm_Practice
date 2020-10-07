@@ -1,0 +1,1 @@
+add_executable(s1371 main.cpp)

@@ -1,0 +1,1 @@
+add_executable(sx main.cpp)

@@ -1,0 +1,1 @@
+add_executable(s406 main.cpp)

@@ -1,0 +1,1 @@
+add_executable(s3 main.cpp)

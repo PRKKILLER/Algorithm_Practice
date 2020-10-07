@@ -34,3 +34,8 @@ class Solution:
 
         x_reverse = int(str(x)[::-1])
         return x_reverse * (x_reverse < 2 ** 31)
+
+    def revers_3(self, x):
+        sign = cmp(x, 0)
+        x_reverse = int(str(sign * x)[::-1])
+        return sign * x_reverse * (x_reverse < 2 ** 31)

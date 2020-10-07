@@ -1,0 +1,1 @@
+add_executable(s1389 main.cpp)

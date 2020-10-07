@@ -1,0 +1,1 @@
+add_executable(s34 main.cpp)

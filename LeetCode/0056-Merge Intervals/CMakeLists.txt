@@ -1,0 +1,1 @@
+add_executable(s56 main.cpp)

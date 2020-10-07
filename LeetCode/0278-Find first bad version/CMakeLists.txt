@@ -1,0 +1,1 @@
+add_executable(s278 main.cpp)

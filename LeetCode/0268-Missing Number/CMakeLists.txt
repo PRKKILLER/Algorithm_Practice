@@ -1,0 +1,1 @@
+add_executable(s268 main.cpp)

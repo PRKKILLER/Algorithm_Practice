@@ -1,0 +1,1 @@
+add_executable(s146 main.cpp)

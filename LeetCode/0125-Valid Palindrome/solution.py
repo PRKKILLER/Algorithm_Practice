@@ -21,7 +21,7 @@ Output: true
         if not s:
             return True
 
-        s = ''.join(re.split(r'[^A-Za-z0-9]', s.lower())) # 以''连接List的每一个元素
+        s = ''.join(re.split(r'[^A-Za-z0-9]+', s.lower())) # 以''连接List的每一个元素
         return s == s[::-1]
 
 
@@ -37,5 +37,7 @@ Output: true
         return s == s[::-1]
 
 
-test = Solution().isPalindrome("A man, a plan, a canal: Panama")
-print(test)
+if __name__ == "__main__":
+    test_str = "A man, a plan,  a canal: Panama"
+    print('result1', re.split(r'[^A-Za-z0-9]', test_str))
+    print('result2', re.split(r'[^A-Za-z0-9]+', test_str))

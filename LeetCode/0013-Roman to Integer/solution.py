@@ -49,5 +49,5 @@ C can be placed before D (500) and M (1000) to make 400 and 900.
         sum += pre
         return sum
 
-test = Solution().romanToInt('IV')
+test = Solution().romanToInt('IX')
 print(test)

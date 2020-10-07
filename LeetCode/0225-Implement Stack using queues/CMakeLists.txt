@@ -1,0 +1,1 @@
+add_executable(s225 main.cpp)

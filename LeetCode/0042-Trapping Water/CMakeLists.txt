@@ -1,0 +1,1 @@
+add_executable(s42 main.cpp)

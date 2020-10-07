@@ -1,0 +1,1 @@
+add_executable(s101 main.cpp)

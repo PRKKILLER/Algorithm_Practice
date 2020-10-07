@@ -1,0 +1,1 @@
+add_executable(s226 main.cpp)

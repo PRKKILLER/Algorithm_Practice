@@ -1,0 +1,1 @@
+add_executable(s440 main.cpp)

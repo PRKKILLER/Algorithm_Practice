@@ -1,0 +1,118 @@
+cmake_minimum_required(VERSION 3.15)
+project(Leetcode)
+
+set(CMAKE_CXX_STANDARD 11)
+
+#add_subdirectory("0001-two-sum")
+#add_subdirectory("0002-Add two numbers")
+#add_subdirectory(0007-reverse)
+#add_subdirectory("0009-Palindrome Number")
+#add_subdirectory("0003-Longest substring without repeating")
+#add_subdirectory("0014-longest_common_prefix")
+#add_subdirectory("0020-valid parentheses")
+
+#add_subdirectory("0021-Merge two sorted lists")
+#add_subdirectory("0026-Remove Duplicates from Sorted Array")
+#add_subdirectory("0019-Remove Nth Node from the end of the List")
+#add_subdirectory("0141-Linked List Cycle")
+#add_subdirectory("0035-Search Insert Position")
+#add_subdirectory("0034-Find first & last pos of element in a sorted arr")
+#add_subdirectory("0278-Find first bad version")
+
+#add_subdirectory("0083-Remove duplicates from sorted lists")
+#add_subdirectory("0082-Remove duplicates from sorted lists2")
+#add_subdirectory("0206-Reverse Linked List")
+#add_subdirectory("0142-Linked List Cycle II")
+#add_subdirectory("0234-Palindrome Linked List")
+
+#add_subdirectory("0876-Middle of the Linked List")
+#add_subdirectory("0092-Reverse Linked List II")
+
+#add_subdirectory("0202-Happy Number")
+#add_subdirectory("0061-Rotate List")
+#add_subdirectory("0189-Rotate Array")
+
+#add_subdirectory("0121-Best Time to Buy and Sell Stock")
+#add_subdirectory("0136-Single Number")
+#add_subdirectory("0137-Single Num II")   // 待解决
+#add_subdirectory("0167-Two Sum II - Input array is sorted")
+
+#add_subdirectory("0217-Contains Duplicate")
+#add_subdirectory("0219-Contains Duplicate II")
+#add_subdirectory("0665-Non-decreasing Array")
+#add_subdirectory("1389-Create Target Array in the Given Order")
+
+#add_subdirectory("0144-BinTree Preorder Traversal")
+#add_subdirectory("0094-Binary Tree Inorder Traversal")
+#add_subdirectory("0100-Same Tree")
+
+#add_subdirectory("0102-Binary Tree Level Order Traversal")
+#add_subdirectory("0226-Invert Binary Tree")
+#add_subdirectory("0053-Maximum Subarray")
+
+#add_subdirectory("0101-Symmetric Tree")
+#add_subdirectory("0104-Maximum Depth of Binary Tree")
+#add_subdirectory("0070-Climbing Stairs")
+
+#add_subdirectory("0076-Minimum Window Substring")
+#add_subdirectory("0088-Merge Sorted Array")
+#add_subdirectory("0168-Excel Sheet Column Title")
+#add_subdirectory("0171-Excel Sheet Column Number")
+
+add_subdirectory("0344-Reverse String")
+#add_subdirectory("0232-Implement Queue using Stacks")
+#add_subdirectory("0225-Implement Stack using queues")
+
+#add_subdirectory("Reverse Domain Name")
+#add_subdirectory("0617-Merge Two Binary Trees")
+#add_subdirectory("350-Intersection of Two Arrays II")
+#add_subdirectory("0349-Intersection of Two Arrays")
+#add_subdirectory("0033-Search in Rotated Sorted Array")
+#add_subdirectory("0081-Search in Rotated Sorted Array II")
+#add_subdirectory("0042-Trapping Water")
+#add_subdirectory("0038-Count and Say")
+#add_subdirectory("0392-Is subsequence")
+
+#add_subdirectory("0015-3Sum")
+#add_subdirectory("0016-3Sum Closest")
+#add_subdirectory("0011-Container With Most Water")
+#add_subdirectory("0005- Longest Palindromic Substring")
+#add_subdirectory("0516-Longest Palindromic Subsequence")
+
+#add_subdirectory("0440-K-th Smallest in Lexicographical Order")
+#add_subdirectory("0013-Roman to Integer")
+#add_subdirectory("0027-RemoveElement")
+#add_subdirectory("0153-Find Minimum in Rotated Sorted Array")
+#add_subdirectory("0154-Find Minimum in Rotated Sorted Array II")
+#add_subdirectory("0160-Intersection of Two Linked Lists")
+#add_subdirectory("0169-Majority Element")
+#add_subdirectory("0203-Remove Linked List Elements")
+#add_subdirectory("0231-Power of Two")
+#add_subdirectory("0268-Missing Number")
+#add_subdirectory("0283-Move Zeroes")
+#add_subdirectory("0229-Majority Element II")
+
+#add_subdirectory("0023-Merge k Sorted Lists")
+#add_subdirectory("0122-Best Time to Buy and Sell Stock II")
+#add_subdirectory("1371-Find the Longest Substring Containing Vowls in Even Counts")
+#add_subdirectory("0013-Roman to Integer")
+#add_subdirectory("0986-Interval List Intersections")
+
+#add_subdirectory("0004-Median of Two Sorted Arrays")
+#add_subdirectory("0056-Merge Intervals")
+#add_subdirectory("0974-Subarray Sums Divisible by K")
+
+#add_subdirectory("0523-Continuous Subarray Sum")
+#add_subdirectory("0146-LRU Cache")
+#add_subdirectory("0198-House Robber")
+#add_subdirectory("0213-House Robber II")
+
+#add_subdirectory("0062-Unique Paths")
+#add_subdirectory("0063-Unique Paths II")
+#add_subdirectory("0337-House Robber III")
+#add_subdirectory("0237-Delete Node in a Linked List")
+#add_subdirectory("0054-Spiral Matrix")
+
+#add_subdirectory("0128-Longest Consecutive Sequence")
+#add_subdirectory("0406-Queue Reconstruction by Height")
+#add_subdirectory("0380-Insert Delete GetRandom O(1)")

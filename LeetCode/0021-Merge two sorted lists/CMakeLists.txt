@@ -1,0 +1,1 @@
+add_executable(s21 main.cpp)

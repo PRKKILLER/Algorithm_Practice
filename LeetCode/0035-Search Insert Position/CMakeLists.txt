@@ -1,0 +1,1 @@
+add_executable(s35 main.cpp)

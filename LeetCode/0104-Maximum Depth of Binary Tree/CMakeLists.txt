@@ -1,0 +1,1 @@
+add_executable(s104 main.cpp)

@@ -1,0 +1,1 @@
+add_executable(s144 main.cpp)

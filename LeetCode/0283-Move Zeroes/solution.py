@@ -56,9 +56,3 @@ Minimize the total number of operations.
             if nums[i] != 0:
                 nums[p0], nums[i] = nums[i], nums[p0]
                 p0 += 1
-
-if __name__ == "__main__":
-    a = [0,1,0,3,12]
-    print(a.count(0))
-    Solution().moveZeroes_v3(a)
-    print(a)

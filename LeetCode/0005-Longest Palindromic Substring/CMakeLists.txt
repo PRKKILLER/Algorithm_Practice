@@ -1,0 +1,1 @@
+add_executable(s5 main.cpp)

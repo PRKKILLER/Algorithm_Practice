@@ -1,0 +1,1 @@
+add_executable(s61 main.cpp)
