@@ -12,3 +12,6 @@
 build/*
 
 cmake-build-debug/*
+
+# dsapp
+dsapp/*
