@@ -39,7 +39,7 @@ class solution:
                 p.next = cur.left
                 p = p.next
             if cur.right:
-                p.next - cur.right
+                p.next = cur.right
                 p = p.next
             
             if cur.next:

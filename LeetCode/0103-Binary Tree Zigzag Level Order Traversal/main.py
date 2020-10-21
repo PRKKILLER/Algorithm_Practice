@@ -29,28 +29,29 @@ class TreeNode:
 # 偶数层时，每个node的值采用尾插法
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        if not root:
-            return []
+        if not root: return []
         
         from collections import deque
         res = []
         q = deque([root])
-        flag = False
+        is_odd = False
+        
         while q:
-            row = []
-            cur_len = len(q)
-            for i in range(cur_len):
-                node = q.popleft()        
-                if flag:
-                    row.insert(0, node.val)
+            sz = len(q)
+            level = deque()
+            for i in range(sz):
+                node = q.popleft()
+                if is_odd:
+                    level.appendleft(node.val)
                 else:
-                    row.append(node.val)
+                    level.append(node.val)
                 
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
                 
-                flag = not flag
-
+            res.append(list(level))
+            is_odd = not is_odd
+        
         return res

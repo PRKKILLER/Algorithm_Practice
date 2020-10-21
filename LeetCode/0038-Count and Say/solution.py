@@ -59,6 +59,3 @@ Note: Each term of the sequence of integers will be represented as a string.
 
 if __name__ =='__main__':
     print(Solution().countAndSay_v2(5))
-
-
-

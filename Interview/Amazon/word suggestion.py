@@ -73,6 +73,9 @@ class Trie:
         return res
 
     def dfs(self, prefix: str, res: List[str], node):
+        if not node:
+            return
+        
         if '#' in node:
             res.append(prefix)
 

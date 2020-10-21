@@ -21,7 +21,7 @@ class Solution:
     """  
     注意不是substring，是subsequence, 因此数字不用相邻
     思路：利用动态规划, dp[i]保存以i结尾的最长递增子串
-    对于每个nums[i]，从0遍历到i，当遇到比nums[i]的数字的时候，更新dp[i]
+    对于每个nums[i]，从0遍历到i，当遇到比nums[i]小的数字的时候，更新dp[i]
     dp[i] = max(dp[i], dp[j]+1)
 
     时间复杂度： O(n^2)

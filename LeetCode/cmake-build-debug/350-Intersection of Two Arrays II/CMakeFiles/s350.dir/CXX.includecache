@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wonderful_xue/code_repo/Algorithm/LeetCode/350-Intersection of Two Arrays II/main.cpp
+vector
+-
+iostream
+-
+algorithm
+-
+unordered_map
+-
+

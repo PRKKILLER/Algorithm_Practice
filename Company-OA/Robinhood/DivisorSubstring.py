@@ -12,13 +12,20 @@ def solution(n: int, k: int) -> int:
     l = len(n_s)
     i = 0
     cnt = 0
+    s = set()
     while i + k <= l:
         divisor = int(n_s[i:i+k])
-        if divisor == 0:
+        if divisor in s:
             i += 1
             continue
-        if n % divisor == 0:
-            cnt += 1
+
+        if divisor == 0:
+            i += 1
+        else:
+            if n % divisor == 0:
+                cnt += 1
+                s.add(divisor)
+            
             i += 1
 
     return cnt

@@ -26,7 +26,7 @@ Return 3. The paths that sum to 8 are:
 2.  5 -> 2 -> 1
 3. -3 -> 11
 """
-import collections
+from collections import defaultdict
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -36,31 +36,45 @@ class TreeNode:
 
 
 class Solution:
-    def __init__(self):
-        self.preSum = collections.defaultdict(int)
-
-    # 时间复杂度：O(n)，核心思想：前缀和
     def pathSum(self, root: TreeNode, sum: int) -> int:
-        if not root: return 0
+        def preorder(node: TreeNode, curr_sum) -> None:
+            nonlocal count
+            if not node:
+                return 
+            
+            # current prefix sum
+            curr_sum += node.val
+            
+            # here is the sum we're looking for
+            if curr_sum == k:
+                count += 1
+            
+            # number of times the curr_sum − k has occurred already, 
+            # determines the number of times a path with sum k 
+            # has occurred up to the current node
+            count += h[curr_sum - k]
+            
+            # add the current sum into hashmap
+            # to use it during the child nodes processing
+            h[curr_sum] += 1
+            
+            # process left subtree
+            preorder(node.left, curr_sum)
+            # process right subtree
+            preorder(node.right, curr_sum)
+            
+            # remove the current sum from the hashmap
+            # in order not to use it during 
+            # the parallel subtree processing
+            h[curr_sum] -= 1
         
-        self.preSum[0] = 1
-        return self.pathFinder(root, 0, sum)
-
-    def pathFinder(self, node: TreeNode, curSum, target: int) -> int:
-        if not node: return 0
-        
-        curSum += node.val
-        numOfPath = self.preSum[curSum - target]
-        self.preSum[curSum] += 1
-        
-        res = numOfPath + self.pathFinder(node.left, curSum, target) \
-                + self.pathFinder(node.right, curSum, target)
-        
-        self.preSum[curSum] -= 1
-        
-        return res
+        count, k = 0, sum
+        h = defaultdict(int)
+        preorder(root, 0)
+        return count
 
     #####################################################
+
     # 基本思想：dfs 时间复杂度: O(n^2)
     def pathSum2(self, root: TreeNode, target: int) -> int:
         if not root: return 0
@@ -75,4 +89,3 @@ class Solution:
         curPath = 1 if node.val == target else 0
         return curPath + self.pathSumFrom(node.left, target - node.val) + \
             self.pathSumFrom(node.right, target - node.val)
-

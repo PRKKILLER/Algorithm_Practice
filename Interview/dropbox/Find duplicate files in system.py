@@ -76,8 +76,8 @@ class FindDuplicateFiles:
         fileSizeMap = defaultdict(list)
 
         for f in self.files_path:
-            file = open(f, 'rb')
-            f_size = len(file) # get metadata
+            # with open(f, 'rb') as file:
+            f_size = os.path.getsize(f) # get metadata
             fileSizeMap[f_size].append(f)
 
         return fileSizeMap

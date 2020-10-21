@@ -44,7 +44,7 @@ class Solution:
         offset = [(-1,0), (0,1), (1,0),(0,-1)]
         step = 0
 
-        while q and fresh_cnt > 0:
+        while q and fresh_cnt:
             step += 1
             sz = len(q)
             for i in range(sz):

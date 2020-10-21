@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wonderful_xue/code_repo/Algorithm/LeetCode/0034-Find first & last pos of element in a sorted arr/main.cpp
+iostream
+-
+vector
+-
+
