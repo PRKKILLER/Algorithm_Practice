@@ -20,6 +20,8 @@ Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
 因为numbers数组是有序的，因此就可以利用双指针，从数组两侧搜索
 空间复杂度: O(1)， 时间复杂度: O(n)
 """
+
+
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         i, j = 0, len(numbers) - 1

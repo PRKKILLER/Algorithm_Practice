@@ -22,6 +22,7 @@ C can be placed before D (500) and M (1000) to make 400 and 900.
 思路：贪心算法
 """
 
+
 class Solution:
     def intToRoman(self, num: int) -> str:
         d = [
@@ -45,7 +46,7 @@ class Solution:
             if num == 0:
                 break
             cnt, num = divmod(num, val)
-            if cnt != 0:
+            if cnt:
                 roman += symbol * cnt
 
         return roman

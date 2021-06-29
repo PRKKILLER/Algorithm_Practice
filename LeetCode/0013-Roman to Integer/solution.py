@@ -23,6 +23,7 @@ I can be placed before V (5) and X (10) to make 4 and 9.
 X can be placed before L (50) and C (100) to make 40 and 90.
 C can be placed before D (500) and M (1000) to make 400 and 900.
     '''
+
     def romanToInt(self, s):
         """
         :type s: str
@@ -31,23 +32,20 @@ C can be placed before D (500) and M (1000) to make 400 and 900.
         if not s:
             return 0
 
-        Dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        d = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
+             'C': 100, 'D': 500, 'M': 1000}
 
         if len(s) == 1:
-            return Dict.get(s)
+            return d[s]
 
-        sum = 0
-        pre = Dict.get(s[0])
-        for i in s[1:]:
-            current = Dict.get(i)
-            if current > pre:
-                sum -= pre
+        res = 0
+        prev = d[s[0]]
+        for c in s[1:]:
+            if prev < d[c]:
+                res -= prev
             else:
-                sum += pre
-            pre = current
+                res += prev
+            prev = d[c]
 
-        sum += pre
-        return sum
-
-test = Solution().romanToInt('IX')
-print(test)
+        res += prev
+        return res

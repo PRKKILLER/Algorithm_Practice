@@ -21,22 +21,24 @@ n == nums.length
 -100 <= target <= 100
 """
 
+
 class Solution:
     def threeSumSmaller(self, nums: List[int], target: int) -> int:
         nums.sort()
         n = len(nums)
         if n < 3:
             return 0
-        
+
         res = 0
         for k in range(n - 2):
             tmp = target - nums[k]
             lo, hi = k + 1, n - 1
             while lo < hi:
                 if nums[lo] + nums[hi] < tmp:
+                    # every number between lo and hi (including nums[hi]) itself satisfy the condition
                     res += hi - lo
                     lo += 1
                 else:
                     hi -= 1
-                    
+
         return res
