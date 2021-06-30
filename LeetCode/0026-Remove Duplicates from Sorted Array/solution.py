@@ -33,8 +33,9 @@ It doesn't matter what you leave beyond the returned length.
                 nums[count] = nums[i]
         return count + 1
 
-a = [0,0,1,1,1,2,2,3,3,4]
-test = Solution().removeDuplicates(a)
-print(test)
-print(a)
 
+if __name__ == '__main__':
+    a = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+    test = Solution().removeDuplicates(a)
+    print(test)
+    print(a)

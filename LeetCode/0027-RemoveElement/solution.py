@@ -16,15 +16,17 @@ It doesn't matter what you leave beyond the returned length.
 
     '''
     # 解题技巧：因为题目中不要求新序列的顺序，巧用 count 作为新序列下标
+
     def removeElement(self, nums, val):
         """
         :type nums: List[int]
         :type val: int
         :rtype: int
         """
-        count = 0
-        for i in range(len(nums)):
-            if nums[i] != val:
-                nums[count] = nums[i]
-                count += 1
-        return count
+        cnt = 0
+        for num in nums:
+            if num != val:
+                nums[cnt] = num
+                cnt += 1
+
+        return cnt
