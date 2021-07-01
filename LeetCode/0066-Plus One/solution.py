@@ -14,21 +14,41 @@ Example: input = [1,2,3] -> output = [1,2,4]
     # 若想要有返回值/返回新的一个list，可用'+'
 
     '''
+
     def plusOne(self, digits):
         """
         :type digits: List[int]
         :rtype: List[int]
         """
-        carry = 1
-        n = len(digits) - 1
-        while n >= 0:
-            num = (digits[n] + carry) % 10
-            carry = (digits[n] + carry) // 10
-            digits[n] = num
-            if carry == 0:
-                return digits
-            n -= 1
+        carry = 0
+        for i in range(len(digits)-1, -1, -1):
+            if digits[i] == 9:
+                carry, digits[i] = 1, 0
+            else:
+                carry, digits[i] = 0, digits[i] + 1
+                break
 
-        return [1] + [0] * len(digits) # 如果到了最高位进位仍然存在，那么我们必须重新new一个数组，然后把第一个为赋成1
+        if carry:
+            digits.insert(0, 1)
 
-print(Solution().plusOne([9,9,9]))
+        return digits
+
+    def plusOne(self, digits):
+        # find right most digit != 9
+        # add this digit by 1
+        # set all the following digits to 0
+        not_nine = -1
+        for i in range(len(digits)):
+            if digits[i] != 9:
+                not_nine = i
+
+        if not_nine != -1:
+            digits[not_nine] += 1
+        else:
+            digits.insert(0, 1)
+
+        # set all the following digits to 0
+        for i in range(not_nine+1, len(digits)):
+            digits[i] = 0
+
+        return digits
