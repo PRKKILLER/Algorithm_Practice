@@ -23,18 +23,19 @@ Output: 6
 # @param num, your guess
 # @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
 
+
 def guess(num: int) -> int: pass
+
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        lo, hi = 1, n + 1
-        while lo < hi:
-            mi = lo + (hi - lo) // 2
-            res = guess(mi)
-            if res == 1:
-                lo = mi + 1
-            elif res == -1:
-                hi = mi
+        lo, hi = 1, n
+        while lo <= hi:
+            mid = (lo+hi)//2
+            g = guess(mid)
+            if g < 0:
+                hi = mid - 1
+            elif g > 0:
+                lo = mid + 1
             else:
-                return mi
-        return lo
+                return mid

@@ -12,7 +12,9 @@ Implement a function to find the first bad version.
 You should minimize the number of calls to the API.
 """
 
+
 def isBadVersion(version): pass
+
 
 class Solution:
     def firstBadVersion(self, n):
@@ -20,13 +22,12 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        lo, hi = 0, n
-        while lo < hi:
-            mi = lo + (hi - lo) // 2
-            if isBadVersion(mi + 1): # version = 数组下标 + 1
-                hi = mi
+        lo, hi = 1, n
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if isBadVersion(mid):  # target <= nums[mid]
+                hi = mid - 1
             else:
-                lo = mi + 1
-        
-        return lo + 1 # version = 数组下标 + 1
+                lo = mid + 1
 
+        return lo

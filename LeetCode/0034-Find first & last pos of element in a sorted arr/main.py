@@ -14,21 +14,59 @@ Output: [3,4]
 
 """
 
+
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
+    # binary search with <=
+    def searchRange1(self, nums: List[int], target: int) -> List[int]:
         if not nums:
             return [-1, -1]
-        
+
+        def searchLow():
+            lo, hi = 0, len(nums) - 1
+            while lo <= hi:
+                mid = (lo+hi)//2
+                if target <= nums[mid]:
+                    hi = mid - 1
+                else:
+                    lo = mid + 1
+
+            return lo
+
+        def searchHigh():
+            lo, hi = 0, len(nums) - 1
+            while lo <= hi:
+                mid = (lo+hi)//2
+                if target < nums[mid]:
+                    hi = mid - 1
+                else:
+                    lo = mid + 1
+
+            return lo - 1
+
+        min_rank = searchLow()
+        max_rank = searchHigh()
+        if 0 <= min_rank < len(nums) and min_rank <= max_rank and nums[min_rank] == target:
+            return [min_rank, max_rank]
+
+        return [-1, -1]
+
+        ################################################################
+
+    # binary search with <
+    def searchRange2(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            return [-1, -1]
+
         # find the lowest rank of the given target
         min_rank = self.binSearchFirst(nums, target)
         if min_rank == -1:
             return [-1, -1]
-        
+
         # find the highest rank of the given target
         max_rank = self.binSearchLast(nums, target)
-        
+
         return [min_rank, max_rank]
-    
+
     def binSearchFirst(self, arr, target):
         lo, hi = 0, len(arr)
         while lo < hi:
@@ -37,12 +75,12 @@ class Solution:
                 hi = mid
             else:
                 lo = mid + 1
-                
+
         if lo == len(arr) or arr[lo] != target:
             return -1
-        
+
         return lo
-    
+
     def binSearchLast(self, arr, target):
         lo, hi = 0, len(arr)
         while lo < hi:
@@ -51,6 +89,5 @@ class Solution:
                 hi = mid
             else:
                 lo = mid + 1
-                
+
         return lo - 1 if arr[lo-1] == target else -1
-    
