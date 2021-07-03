@@ -27,22 +27,25 @@ if total opr <= K, window_size++
 else if total opr > K, move sliding window start pointer
 """
 
-from collections import deque
 
+
+
+from collections import deque
 def maxEqual(arr, K):
     dq = deque()
-    window = 0 # record window size
-    start = 0 # recard sliding window's start pointer
-    s = 0 # record the sum of the sliding window
+    window = 0  # record window size
+    start = 0  # recard sliding window's start pointer
+    s = 0  # record the sum of the sliding window
 
     for i, n in enumerate(arr):
         while dq and arr[dq[-1]] <= n:
             dq.pop()
 
         dq.append(i)
-        s += n # sum of the sliding window
+        s += n  # sum of the sliding window
 
-        cost = arr[dq[0]] * (window + 1) - s # total number of opr to make the window same
+        # total number of opr to make the window same
+        cost = arr[dq[0]] * (window + 1) - s
 
         if cost <= K:
             window += 1
@@ -57,17 +60,7 @@ def maxEqual(arr, K):
 
     return window
 
+
 if __name__ == "__main__":
-    arr = [2,4,8,5,9,6]
+    arr = [2, 4, 8, 5, 9, 6]
     print(maxEqual(arr, 6))
-
-
-
-
-
-
-
-
-
-
-
