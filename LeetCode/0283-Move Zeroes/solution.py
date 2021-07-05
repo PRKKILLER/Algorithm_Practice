@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution():
     '''
 Given an array nums, write a function to move all 0's to the end of it
 while maintaining the relative order of the non-zero elements.
@@ -13,46 +13,29 @@ Note:
 You must do this in-place without making a copy of the array.
 Minimize the total number of operations.
     '''
-    # 法1, 没有做到in-place
-    def moveZeroes(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
-        count = nums.count(0)
-        for i in range(count):
-            nums.remove(0)
-            nums.append(0)
-
-    # 法2，双指针
-    def moveZeroes_v2(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
-        p0, p1 = 0, 0 # 双指针，p0指向0，p1指向非0元素
-        length = len(nums)
-        while p0 < length and p1 < length:
-            if nums[p0] != 0:
-                p0 += 1
-                p1 = p0
-                continue
-            if nums[p1] == 0:
-                p1 += 1
-                continue
-            # nums[p0] == 0 and nums[p1] != 0
-            nums[p0], nums[p1] = nums[p1], nums[p0]
-            p0 += 1
-            p1 += 1
-
     # 单指针
-    def moveZeroes_v3(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
-        p0 = 0
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                nums[p0], nums[i] = nums[i], nums[p0]
-                p0 += 1
+
+    def moveZeroes(self, nums: List[int]) -> None:
+        pos = 0
+        for i, num in enumerate(nums):
+            if num != 0:
+                if pos != i:
+                    # num[pos], num[i] = num[i], num[pos]
+                    num[pos], num[i] = num[i], 0
+                pos += 1
+
+        return
+
+    # shift non-zero numbers as far forward as possible,
+    # fill remaining spaces with zeros
+    def moveZeroes_v2(self, nums: List[int]) -> None:
+        cur = 0
+        for num in nums:
+            if num != 0:
+                nums[cur] = num
+                cur += 1
+
+        for i in range(cur, len(nums)):
+            nums[i] = 0
+
+        return

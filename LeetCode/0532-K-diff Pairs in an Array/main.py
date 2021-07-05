@@ -18,17 +18,20 @@ Output: 1
 Explanation: There is one 0-diff pair in the array, (1, 1).
 """
 
-from collections import Counter
-from typing import List
-
 """  
 Count the elements with Counter
 If k > 0, for each element i, check if i + k exist.
 If k == 0, for each element i, check if count[i] > 1
 """
+
+
 class Solution:
+    # Time complexity: O(N)
+    # space complexity: O(N)
     def findPairs(self, nums: List[int], k: int) -> int:
-        c = Counter(nums) # {element: frequency}
+        from collections import Counter
+
+        c = Counter(nums)  # {element: frequency}
         cnt = 0
 
         if k > 0:
@@ -39,6 +42,34 @@ class Solution:
             for i in c:
                 if c[i] > 1:
                     cnt += 1
-        
+
         return cnt
 
+    # time complexity: O(NlogN)
+    # space complexity: O(1)
+    def findPairs2(self, nums: List[int], k: int) -> int:
+        if len(nums) < 2:
+            return 0
+
+        nums.sort()
+        res = 0
+        lo, hi, size = 0, 1, len(nums)
+
+        while hi < size:
+            diff = nums[hi] - nums[lo]
+            if diff == k:
+                res += 1
+                lo, hi = lo + 1, hi + 1
+                while lo < size and nums[lo] == nums[lo - 1]:
+                    lo += 1
+                while hi < size and nums[hi] == nums[hi - 1]:
+                    hi += 1
+            elif diff < k:
+                hi += 1
+            else:
+                lo += 1
+
+            if lo == hi:
+                hi += 1
+
+        return res

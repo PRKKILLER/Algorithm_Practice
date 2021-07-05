@@ -1,6 +1,5 @@
 class Solution:
     '''
-
 Given a sorted array nums, remove the duplicates in-place
 such that each element appear only once and return the new length.
 
@@ -15,27 +14,16 @@ Your function should return length = 2, with the first two elements of nums bein
 It doesn't matter what you leave beyond the returned length.
     '''
 
-    def removeDuplicates(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return 0
 
-        count = 0
-
-        for i in range(len(nums)):
-            if nums[i] == nums[count]:
+        cnt = 1
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
                 continue
             else:
-                count += 1
-                nums[count] = nums[i]
-        return count + 1
+                nums[cnt] = nums[i]
+                cnt += 1
 
-
-if __name__ == '__main__':
-    a = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-    test = Solution().removeDuplicates(a)
-    print(test)
-    print(a)
+        return cnt
