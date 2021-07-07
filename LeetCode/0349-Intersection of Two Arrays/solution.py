@@ -11,6 +11,7 @@ Given two arrays, write a function to compute their intersection.
     Each element in the result must be unique.
     The result can be in any order.
     '''
+
     def intersection(self, nums1, nums2):
         """
         :type nums1: List[int]
@@ -26,6 +27,4 @@ Given two arrays, write a function to compute their intersection.
         :type nums2: List[int]
         :rtype: List[int]
         """
-        return list(set(nums1).intersection(set(nums2)))
-
-print(Solution().intersection([1,2,2,1],[2,2]))
+        return set(nums1) & set(nums2)
