@@ -18,19 +18,21 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 """
 import heapq
 
+
 class Solution:
+    # time complexity: O(NlogN)
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
         points = sorted(points, key=lambda point: point[0]**2 + point[1]**2)
         return points[:K]
 
-    # using priority queue
+    # using priority queue (min heap)
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
         heap = []
         for (x, y) in points:
-            dist = -(x**2 + y**2) # 构建小顶堆
+            dist = -(x**2 + y**2)  # 构建小顶堆
             if len(heap) == K:
-                heapq.heappushpop(heap, (dist, x, y)) # dist 用于构建小顶堆，排序
+                heapq.heappushpop(heap, (dist, x, y))  # dist 用于构建小顶堆，排序
             else:
                 heapq.heappush(heap, (dist, x, y))
-        
+
         return [[x, y] for (dist, x, y) in heap]
