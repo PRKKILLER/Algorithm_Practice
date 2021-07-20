@@ -1,12 +1,14 @@
 {
-    "cmake.configureOnOpen": false,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python",
-        "editor.tabSize": 4,
-        "editor.formatOnSave": true
-    },
-    "[cpp]": {
-        "editor.tabSize": 4,
-        "editor.formatOnSave": true
-    }
+  "cmake.configureOnOpen": false,
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.tabSize": 4
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "files.associations": {
+    "queue": "cpp"
+  }
 }

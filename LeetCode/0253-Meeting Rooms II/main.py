@@ -17,23 +17,25 @@ import heapq
 """  
 思路，利用priority queue来track当前最早结束的会议
 """
+
+
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         if not intervals or not intervals[0]:
             return 0
-        
+
         if len(intervals) == 1:
             return 1
-        
+
         # sort the meetings' start time in increasing order
         intervals.sort(key=lambda x: x[0])
-        
+
         rooms = []
-        
+
         # add the first meeting.
         # building the min heap
         heapq.heappush(rooms, intervals[0][1])
-        
+
         for m in intervals[1:]:
             # if the currently earlist end time < meeting's start time
             # assign this meeting room to the new meeting
@@ -41,5 +43,5 @@ class Solution:
                 heapq.heappushpop(rooms, m[1])
             else:
                 heapq.heappush(rooms, m[1])
-                
+
         return len(rooms)

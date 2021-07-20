@@ -19,6 +19,7 @@ You can return the answer in any order.
 
 from collections import Counter, defaultdict
 
+
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         topK = Counter(nums).most_common(k)  # [(num, freq)...]
@@ -29,23 +30,24 @@ class Solution:
     freq_map保存 num -> 出现次数 的映射
     bucket是List[List], bucket的下标对应的是frequency
     bucket[i]保存了frequency=i的所有数字
+
+    Time complexity: O(N)
     """
-    def topKFrequent2(self, nums, k):
-        freq = defaultdict(int)
-        bucket = [[] for _ in (len(nums) + 1)]
 
-        for num in nums:
-            freq[num] += 1
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # index represents the frequency
+        buckets = [[] for _ in range(len(nums) + 1)]
+        num_freq = Counter(nums).items()
 
-        for n, f in freq.items():
-            bucket[f].append(n)
+        for num, freq in num_freq:
+            buckets[freq].append(num)
 
         res = []
-        
-        for i in range(len(nums), -1, -1):
-            for num in bucket[i]:
-                res.append(num)
-                if len(res) == k:
-                    return res
+        for item in buckets[::-1]:
+            if item:
+                for num in item:
+                    res.append(num)
+                    if len(res) == k:
+                        return res
 
         return res
