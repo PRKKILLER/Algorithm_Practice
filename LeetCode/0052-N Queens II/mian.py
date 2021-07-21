@@ -5,38 +5,43 @@ such that no two queens attack each other.
 Given an integer n, return the number of distinct solutions to the n-queens puzzle.
 """
 
+
 class Solution:
     def totalNQueens(self, n: int) -> int:
-        self.n = n
-        self.cnt = 0
-        board = [['.'] * n for _ in range(self.n)]
-        
-        self.backtrack(board, 0)
-        return self.cnt
-    
-    def backtrack(self, board, row):
-        if row == self.n:
-            self.cnt += 1
-        
-        for col in range(self.n):
-            if self.isValid(board, row, col):
-                board[row][col] = 'Q'
-                self.backtrack(board, row + 1)
-                board[row][col] = '.'
-            
-    def isValid(self, board, row, col):
-        # check column
-        for i in range(row):
-            if board[i][col] == 'Q':
-                return False
-            
-        # check top left part
-        for i, j in zip(range(row-1, -1, -1), range(col-1, -1, -1)):
-            if board[i][j] == 'Q':
-                return False
-            
-        for i, j in zip(range(row-1, -1, -1), range(col+1, self.n)):
-            if board[i][j] == 'Q':
-                return False
-            
-        return True
+        board = [['.' for _ in range(n)] for _ in range(n)]
+        self.res = 0
+
+        def backtrack(row: int):
+            if row == n:
+                self.res += 1
+                return
+
+            for col in range(n):
+                if is_valid(row, col):
+                    # make decision
+                    board[row][col] = 'Q'
+                    # move to next row
+                    backtrack(row + 1)
+                    # backtrack
+                    board[row][col] = '.'
+
+        def is_valid(row: int, col: int):
+            # check column
+            for r in range(row):
+                if board[r][col] == 'Q':
+                    return False
+
+            # check top left
+            for r, c in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
+                if board[r][c] == 'Q':
+                    return False
+
+            # check top right
+            for r, c in zip(range(row - 1, -1, -1), range(col + 1, n)):
+                if board[r][c] == 'Q':
+                    return False
+
+            return True
+
+        backtrack(0)
+        return self.res

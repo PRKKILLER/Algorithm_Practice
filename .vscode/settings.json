@@ -9,6 +9,9 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "files.associations": {
-    "queue": "cpp"
+    "queue": "cpp",
+    "vector": "cpp",
+    "iosfwd": "cpp",
+    "iterator": "cpp"
   }
 }
