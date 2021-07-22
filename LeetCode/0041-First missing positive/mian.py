@@ -25,29 +25,36 @@ Your algorithm should run in O(n) time and uses constant extra space.
 对于长度为 n 的数组，第一个missing的positive number 一定 <= n
 """
 
+
 class Solution:
+    """  
+    For any array whose length is l, the first missing positive must be in range [1,...,l+1], 
+    so we only have to care about those elements in this range and remove the rest
+    """
+
     def firstMissingPositive(self, nums: List[int]) -> int:
-        cnt = 0 # count the positive element in the array
-        
+        cnt = 0  # count the positive element in the array
+
         # base case
         if 1 not in nums:
             return 1
-        
+
         # [1]
         if len(nums) == 1:
             return 2
-        
+
         for num in nums:
-            if num > 0: cnt += 1
-                
+            if num > 0:
+                cnt += 1
+
         mp = [0] * cnt
-        
+
         for num in nums:
-            if num <= cnt and num > 0:
+            if 0 < num <= cnt:
                 mp[num-1] = 1
-                
+
         for i in range(cnt):
             if mp[i] == 0:
                 return i + 1
-            
+
         return cnt + 1

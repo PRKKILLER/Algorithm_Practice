@@ -15,25 +15,23 @@ Output:
 ]
 """
 
+
 class Solution:
     def combine(self, n: int, k: int):
-        self.res = []
-        self.backtrack([], n, k, 1)
-        return self.res
+        def backtrack(start: int, path: List[int], sz: int) -> None:
+            if sz == k:
+                res.append(path)
+                return
 
-    def backtrack(self, track, n, k, start):
-        # make a copy of the list, so the modification wont affect original list
-        track = track[:] 
-        if k == 0:
-            self.res.append(track)
-            return
-        
-        for i in range(start, n+1):
-            track.append(i)
-            self.backtrack(track, n, k-1, i+1)
-            track.pop()
+            for num in range(start, n + 1):
+                # make decisions
+                path.append(num)
+                # move to next state
+                # it is important to do "path[:]" here to make a copy
+                backtrack(num + 1, path[:], sz + 1)
+                # backtrack
+                path.pop()
 
-if __name__ == "__main__":
-    sol = Solution()
-    res = sol.combine(4, 2)
-    print(res)
+        res = []
+        backtrack(1, [], 0)
+        return res
