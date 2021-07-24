@@ -15,22 +15,21 @@ Output:
 ]
 """
 
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        if not nums: return []
-        
-        res, n = [], len(nums)
-        
-        def backtrack(track):
-            if len(track) > n: return
-            elif len(track) == n:
-                res.append(track[:])
-                
+        def backtrack(path: List[int]) -> None:
+            if len(path) == n:
+                res.append(path[:])
+                return
+
             for num in nums:
-                if num not in track:
-                    track.append(num)
-                    backtrack(track)
-                    track.pop()
-                    
+                if num not in path:
+                    path.append(num)
+                    backtrack(path)
+                    path.pop()
+
+        n = len(nums)
+        res = []
         backtrack([])
         return res

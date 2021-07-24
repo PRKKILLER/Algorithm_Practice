@@ -1,1 +1,0 @@
-add_executable(s70 main.cpp)

@@ -40,9 +40,9 @@ class Solution:
             if memo[idx] != Index.Undefined:
                 return True if memo[idx] == Index.Good else False
 
-            furtherest_pos = min(idx + nums[idx], n - 1)
+            farthest_pos = min(idx + nums[idx], n - 1)
 
-            for p in range(idx + 1, furtherest_pos):
+            for p in range(idx + 1, farthest_pos):
                 if canJumpFromIdx(p):
                     memo[p] = Index.Good
                     return True
@@ -66,9 +66,9 @@ class Solution:
         memo[-1] = Index.Good
 
         for idx in range(n - 2, -1, -1):
-            furtherest_pos = min(idx + nums[idx], n - 1)
+            farthest_pos = min(idx + nums[idx], n - 1)
 
-            for p in range(idx + 1, furtherest_pos + 1):
+            for p in range(idx + 1, farthest_pos + 1):
                 if memo[p] == Index.Good:
                     memo[idx] = Index.Good
                     break
