@@ -16,13 +16,63 @@ Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3]
 
 from typing import List
 
+
 class Solution:
+    """  
+    Bottom-up DP Solution: 2 round
+    """
+
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         n = len(cost)
-        dp = [None] * n
-        dp[0], dp[1] = cost[0], cost[1]
-        
-        for i in range(2, n):
-            dp[i] = cost[i] + min(dp[i-1], dp[i-2])
-        
-        return min(dp[n-1], dp[n-2])
+
+        # start at index=0
+        p, c = 0, cost[0]
+        for i in range(2, n + 1):
+            tmp = c
+            c = min(p + cost[i - 2], c + cost[i - 1])
+            p = tmp
+
+        # start at index=1
+        f, g = 0, cost[1]
+        for i in range(3, n + 1):
+            tmp = g
+            g = min(f + cost[i - 2], g + cost[i - 1])
+            f = tmp
+
+        return min(c, g)
+
+    """  
+    Bottom-up DP solution (Tabulation)
+    """
+
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        dp = [0] * (n + 1)
+
+        for i in range(2, n + 1):
+            dp[i] = min(dp[i - 2] + cost[i - 2], dp[i - 1] + cost[i - 1])
+
+        return dp[-1]
+
+    """  
+    Top-bottom DP solution with Memoization
+    """
+
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        dp = [0] * (n + 1)
+
+        def min_cost(idx: int):
+            # base case
+            if idx <= 1:
+                return 0
+
+            if dp[idx]:
+                return dp[idx]
+
+            down_one = min_cost(idx - 1)
+            down_two = min_cost(idx - 2)
+            dp[idx] = min(down_one, down_two)
+            return dp[idx]
+
+        return min_cost(n)
