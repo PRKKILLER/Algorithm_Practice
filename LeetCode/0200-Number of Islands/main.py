@@ -14,27 +14,67 @@ Input: grid = [
 Output: 1
 """
 
+
 class Solution:
-    # 基本思路：iterate each of the cell in the grid and if it is an island, do dfs,
-    # mark all of its adjunct islands, cnt += 1
+    """  
+    DFS solution
+    Time complexity : O(M×N) 
+    Space complexity : worst case: O(MxN), in case grid is filled with lands
+    """
+
     def numIslands(self, grid: List[List[str]]) -> int:
-        if not grid: return 0
-        
-        cnt = 0
-        self.m, self.n = len(grid), len(grid[0])
-        for i in range(self.m):
-            for j in range(self.n):
-                if grid[i][j] == '1':
-                    self.dfs(grid, i, j)
-                    cnt += 1
-        
-        return cnt
-    
-    def dfs(self, grid, i, j):
-        if i < 0 or j < 0 or i >= self.m or j >= self.n or grid[i][j] != '1':
-            return
-        grid[i][j] = '#' # mark as visited
-        self.dfs(grid, i-1, j)
-        self.dfs(grid, i, j+1)
-        self.dfs(grid, i+1, j)
-        self.dfs(grid, i, j-1)
+        m, n = len(grid), len(grid[0])
+        res = 0
+
+        def dfs(x: int, y: int) -> None:
+            if x < 0 or y < 0 or x >= m or y >= n or grid[x][y] != '1':
+                return
+            grid[x][y] = '#'  # mark as visited
+            dfs(x - 1, y)
+            dfs(x, y - 1)
+            dfs(x + 1, y)
+            dfs(x, y + 1)
+
+        for row in range(m):
+            for col in range(n):
+                if grid[row][col] == '1':
+                    dfs(row, col)
+                    res += 1
+
+        return res
+
+    """  
+    BFS solution
+    Time complexity: O(M x N)
+    Space complexity: O(min(M, N))
+    """
+
+    def numIslands(self, grid: List[List[str]]) -> int:
+        from collections import deque
+
+        m, n = len(grid), len(grid[0])
+        res = 0
+
+        for row in range(m):
+            for col in range(n):
+                if grid[row][col] == '1':
+                    res += 1
+                    dq = deque([(row, col)])
+                    grid[row][col] = '#'  # mark as visited
+                    # traverse all its neighbors
+                    while dq:
+                        x, y = dq.popleft()
+                        if x - 1 >= 0 and grid[x - 1][y] == '1':
+                            grid[x - 1][y] = '#'
+                            dq.append((x - 1, y))
+                        if y - 1 >= 0 and grid[x][y - 1] == '1':
+                            grid[x][y - 1] = '#'
+                            dq.append((x, y - 1))
+                        if x + 1 < m and grid[x + 1][y] == '1':
+                            grid[x + 1][y] = '#'
+                            dq.append((x + 1, y))
+                        if y + 1 < n and grid[x][y + 1] == '1':
+                            grid[x][y + 1] = '#'
+                            dq.append((x, y + 1))
+
+        return res
