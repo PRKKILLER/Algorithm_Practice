@@ -5,7 +5,8 @@ Input:
 The input to the function/method consists of three arguments:
 numRows, an integer representing the number of debt records.
 numCols, an integer representing the number of elements in debt records. It is always 3.
-debts, a list of triplet representing debtRecord consisting of a string borrower, a string lender, and an integer
+debts, a list of triplet representing debtRecord consisting of 
+a string borrower, a string lender, and an integer
 amount, representing the debt record.
 
 Output:
@@ -45,11 +46,11 @@ Casey balance: (7 + 4) - (5) = 11 - 6 = 5
 """
 
 from typing import List
-import functools
+from collections import defaultdict
+
 
 def solution(numRows: int, numCols: int, debts: List) -> List[str]:
-    people = set([item[0] for item in debts])  # 人员名单
-    m = {p: 0 for p in people}
+    m = defaultdict(int)
 
     for item in debts:
         m[item[0]] -= item[2]
@@ -59,20 +60,13 @@ def solution(numRows: int, numCols: int, debts: List) -> List[str]:
     if not res:
         return "Nobody has a negative balance"
 
-    # def compare(x, y):
-    #     if x[1] != y[1]:
-    #         return x[1] > y[1]
-    #     else:
-    #         return x[0] > y[0]
-
-    # res = sorted(res, key = functools.cmp_to_key(compare))
-    res = sorted(res, key = lambda pair: (pair[1], pair[0]))
+    res = sorted(res, key=lambda pair: (pair[1], pair[0]))
     return [item[0] for item in res]
+
 
 numOfRows = 6
 numCols = 3
 debts = [['Alex', 'Blake', 2], ['Blake', 'Alex', 2], ['Casey', 'Alex', 5], ['Blake', 'Casey', 7],
-['Alex', 'Blake', 4], ['Alex', 'Casey', 4]]
+         ['Alex', 'Blake', 4], ['Alex', 'Casey', 4]]
 
 print(solution(numOfRows, numCols, debts))
-
