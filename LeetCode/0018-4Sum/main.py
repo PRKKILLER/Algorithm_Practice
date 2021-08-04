@@ -14,6 +14,8 @@ Input: nums = [1,0,-1,0,-2,2], target = 0
 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 """
 
+from typing import List
+
 
 class Solution:
     # based on the 3sum solution
@@ -23,14 +25,19 @@ class Solution:
             return []
 
         nums.sort()
+        if nums[0] * 4 > target:
+            return []
 
         res = []
         for i in range(len(nums) - 3):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
 
+            if nums[i] * 4 > target:
+                break
+
             three_sum_res = self._threeSum(nums[i+1:], target - nums[i])
-            res += [[nums[i]]+arr for arr in three_sum_res]
+            res += [[nums[i]] + arr for arr in three_sum_res]
 
         return res
 
@@ -39,6 +46,9 @@ class Solution:
         for i in range(len(nums) - 2):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
+
+            if nums[i] * 3 > target:
+                break
 
             t = target - nums[i]
             lo, hi = i + 1, len(nums) - 1
