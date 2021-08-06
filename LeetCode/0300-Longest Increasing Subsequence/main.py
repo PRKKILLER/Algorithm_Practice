@@ -17,17 +17,20 @@ Follow up: Could you improve it to O(n log n) time complexity?
 
 from typing import List
 
+
 class Solution:
     """  
     注意不是substring，是subsequence, 因此数字不用相邻
     思路：利用动态规划, dp[i]保存以i结尾的最长递增子串
     对于每个nums[i]，从0遍历到i，当遇到比nums[i]小的数字的时候，更新dp[i]
-    dp[i] = max(dp[i], dp[j]+1)
+    dp[i] = max(dp[i], dp[j]+1) if dp[i] > dp[j]
 
     时间复杂度： O(n^2)
     """
+
     def lengthOfLIS(self, nums: List[int]) -> int:
-        if not nums: return 0
+        if not nums:
+            return 0
 
         n = len(nums)
         dp = [1] * n
@@ -45,8 +48,10 @@ class Solution:
     第一个不小于它的数字。若不存在，则说明当前数字是最大的，则直接append到dp数字的最后
     若存在，则找到dp数组的原数字，用新的数字更新原数字
     """
+
     def lengthOfLIS2(self, nums):
-        if len(nums) < 2: return len(nums)
+        if len(nums) < 2:
+            return len(nums)
 
         dp = []
 
@@ -69,7 +74,8 @@ class Solution:
 
         return lo
 
-arr = [10,9,2,5,3,7,101,18]
+
+arr = [10, 9, 2, 5, 3, 7, 101, 18]
 sol = Solution()
 res = sol.lengthOfLIS2(arr)
 print(res)
