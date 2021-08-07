@@ -12,14 +12,3 @@ and it should return false if every element is distinct.
         :rtype: bool
         """
         return len(nums) != len(set(nums))
-
-    def containsDuplicate_v2(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        nums.sort()
-        for i in range(len(nums) - 1):
-            if nums[i] == nums[i + 1]:
-                return True
-        return False

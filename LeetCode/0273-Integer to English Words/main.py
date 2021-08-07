@@ -12,13 +12,16 @@ Input: 12345
 Output: "Twelve Thousand Three Hundred Forty Five"
 """
 
+
 class Solution:
     def __init__(self):
-        self.lessThan20 = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"]
-        
-        self.tens = ["","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
-        
-        self.thousands = ["","Thousand","Million","Billion"]
+        self.lessThan20 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+                           "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+
+        self.tens = ["", "Ten", "Twenty", "Thirty", "Forty",
+                     "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+
+        self.thousands = ["", "Thousand", "Million", "Billion"]
 
     def numberToWords(self, num: int) -> str:
         if num == 0:

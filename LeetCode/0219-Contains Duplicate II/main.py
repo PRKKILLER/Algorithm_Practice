@@ -13,14 +13,20 @@ Input: nums = [1,0,1,1], k = 1
 Output: true
 """
 
+
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        cache = set()
-        for i in range(len(nums)):
-            if nums[i] in cache:
-                return True
-            cache.add(nums[i])
-            if len(cache) > k:
-                cache.remove(nums[i-k]) # remove the oldest element from set
-                
+        if k == 0:
+            return False
+
+        dic = {}
+        for idx, num in enumerate(nums):
+            if num in dic:
+                if idx - dic[num] <= k:
+                    return True
+                else:
+                    dic[num] = idx
+            else:
+                dic[num] = idx
+
         return False

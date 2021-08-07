@@ -1,1 +1,0 @@
-add_executable(s380 main.cpp)
