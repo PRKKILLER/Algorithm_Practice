@@ -14,6 +14,8 @@ Output: [3,4]
 
 """
 
+from typing import List
+
 
 class Solution:
     # binary search with <=
@@ -91,3 +93,7 @@ class Solution:
                 lo = mid + 1
 
         return lo - 1 if arr[lo-1] == target else -1
+
+
+sol = Solution()
+print(sol.searchRange1([1, 3], 2))

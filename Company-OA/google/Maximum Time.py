@@ -17,6 +17,7 @@ Input: "2?:22"
 Output: "23:22"
 """
 
+
 def solution(time):
     cTime = list(time)
     ans = list('23:59')
@@ -30,11 +31,12 @@ def solution(time):
         ans[1] = '9' if cTime[0] != '?' and cTime[0] != '2' else ans[1]
     else:
         ans[1] = cTime[1]
-    
+
     ans[3] = ans[3] if cTime[3] == '?' else cTime[3]
     ans[4] = ans[4] if cTime[4] == '?' else cTime[4]
 
     return ''.join(ans)
+
 
 if __name__ == "__main__":
     test_1 = '2?:22'
