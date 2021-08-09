@@ -19,37 +19,41 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 """
 
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+
+
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 
 class Solution:
-    def hasPathSum(self, root, sum):
-        if not root: return False
-        
-        if not root.left and not root.right: return root.val == sum
+    def hasPathSum(self, root: TreeNode, sum):
+        if not root:
+            return False
+
+        if not root.left and not root.right:
+            return root.val == sum
 
         return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
 
-
-    def hasPathSum2(self, root, sum):
+    def hasPathSum2(self, root: TreeNode, sum):
         """
         :type root: TreeNode
         :type sum: int
         :rtype: bool
         """
         self.sum = sum
-        return self.dfs(root, 0)
 
-    def dfs(self, node, carry):
-        if not node: return False
+        def dfs(node: TreeNode, carry):
+            if not node:
+                return False
 
-        carry += node.val
-        if not node.left and not node.right:
-            return carry == self.sum
-        
-        return self.dfs(node.left, carry) or self.dfs(node.right, carry)
+            carry += node.val
+            if not node.left and not node.right:
+                return carry == self.sum
 
+            return self.dfs(node.left, carry) or self.dfs(node.right, carry)
 
+        return dfs(root, 0)
